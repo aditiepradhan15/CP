@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+bool isPalindrome(const string& s) {
+    string rev = s;
+    reverse(rev.begin(), rev.end());
+    return s == rev;
+}
+
+int main() {
+    string S1 = "madam";
+    cout << (isPalindrome(S1) ? "Palindrome" : "Not Palindrome") << endl;
+    return 0;
+}
