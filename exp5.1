@@ -1,0 +1,24 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+
+int main() {
+    int n, m; 
+    cin >> n >> m;
+
+    vector<int> arr(n);
+    for(int i = 0; i < n; i++) cin >> arr[i];
+
+    vector<vector<int>> hashTable(m);
+
+    for(int i = 0; i < n; i++) {
+        int index = arr[i] % m;
+        hashTable[index].push_back(arr[i]);
+    }
+
+    for(int i = 0; i < m; i++) {
+        cout << i << ": ";
+        for(int x : hashTable[i]) cout << x << " ";
+        cout << endl;
+    }
+}
