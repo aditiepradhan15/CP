@@ -1,0 +1,28 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+
+    vector<int> arr(n);
+    for(int i = 0; i < n; i++) cin >> arr[i];
+
+    vector<int> hashTable(m, -1);
+
+    for(int i = 0; i < n; i++) {
+        int index = arr[i] % m;
+
+        if(hashTable[index] == -1 || hashTable[index] == arr[i]) {
+            hashTable[index] = arr[i];
+        } else {
+            int newIndex = (arr[i] + 1) % m;
+            hashTable[newIndex] = arr[i];
+        }
+    }
+
+    for(int i = 0; i < m; i++) {
+        cout << i << ": " << hashTable[i] << endl;
+    }
+}
